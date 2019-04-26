@@ -14,7 +14,18 @@ list.append(4)
 list.append(4)
 list.push(9)
 
-let node = list.node(at: 1)
-list.insert(value: 100, after: node!)
+let node = list.node(at: 3)!
+list.insert(value: 100, after: node)
+list.pop()
+list.pop()
+list.pop()
+list.pop()
+list.pop()
+list.pop()
+list.tail
+
+
+
+
 print(list)
 

@@ -1,7 +1,7 @@
 import Foundation
 
 public struct LinkedList<Value> {
-
+    
     public var head: Node<Value>?
     public var tail: Node<Value>?
     
@@ -32,32 +32,38 @@ public struct LinkedList<Value> {
         var currentNode = head
         var currentIndex = 0
         
-        while true {
-            if index == currentIndex { break }
-            currentNode = currentNode?.next
+        while currentIndex < index && currentNode != nil {
+            currentNode = currentNode!.next
             currentIndex += 1
         }
         
         return currentNode
     }
     
-    public mutating func insert(value: Value, after node: Node<Value>) -> Node<Value> {
+    public mutating func insert(value: Value, after node: Node<Value>) {
         guard tail !== node else {
             append(value)
-            return tail!
+            return 
         }
+        // node.next = 指定したnodeの後ろ, insertするnodeのnextには手前のnodeの元々後ろにあったnodeを入れる
         node.next = Node(value: value, next: node.next)
-        return node.next!
     }
+    
+    public mutating func pop() {
+        head = head?.next
+        if isEmpty {
+            tail = nil
+        }
+    }
+    
+    
 }
 
 extension LinkedList: CustomStringConvertible {
-    
     public var description: String {
         guard let head = head else {
             return "is empty"
         }
         return String(describing: head)
     }
-    
 }
