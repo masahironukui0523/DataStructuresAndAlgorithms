@@ -59,5 +59,5 @@ func getLongestPalindrome(palindromes: [String]) -> String? {
     
 }
 
-let dic = checkPalindrome(sentence: sentence)
+let dic = getLongestPalindrome(palindromes: [sentence])
 print(dic)

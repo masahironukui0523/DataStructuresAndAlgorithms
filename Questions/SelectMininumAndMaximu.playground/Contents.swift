@@ -14,9 +14,9 @@ func selectMinmum(array: [Int]) -> Int? {
         return nil
     }
     
-    for value in array {
-        if min > value {
-            min = value
+    for i in array {
+        if min > i {
+            min = i
         }
     }
     
